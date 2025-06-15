@@ -1,6 +1,4 @@
 
-
-
     <style>
 
          .input-group {
@@ -98,8 +96,20 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+
+        }
+        #horaire{
+            overflow-y: auto;
         }
 
+     
+        .timetable th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        
+ 
         .timetable th, .timetable td {
             border: 1px solid var(--border-color);
             padding: 10px;
@@ -109,6 +119,7 @@
         .timetable th {
             background-color: var(--background-secondary);
             font-weight: bold;
+            font-size: 13px;
         }
 
         .timetable .time-slot {
@@ -200,9 +211,21 @@
             .period {
                 width: 100%;
             }
+
+        #previewSection {
+            display: block !important;
+            position: relative;
+            background: white;
+            z-index: 9999;
         }
-        
-    </style>
+
+        .action-buttons {
+            display: none !important; /* Cache les boutons dans le PDF */
+        }
+        }
+
+
+            </style>
 
 </head>
 <body>
@@ -257,6 +280,9 @@
     </div>
 
     <div id="previewSection" class="preview-section">
+        <div id="horaire">
+
+
         <div class="preview-header">
             <h2>Université du Burundi</h2>
             <h3>Institut Supérieur des Sciences Appliquées (ISSA)</h3>
@@ -299,14 +325,137 @@
             <p>Pr Ir HATUNGIMANA Daniel</p>
             <p>Doyen</p>
         </div>
+     </div>
 
         <div class="action-buttons">
-            <button type="button" onclick="window.print()">Imprimer l'horaire</button>
+           <button onclick="generatePDF()">Enregistrer l'horaire en PDF</button>
             <button type="button" onclick="hidePreview()">Retour au formulaire</button>
         </div>
     </div>
 
+     <div class="pdf-options" id="pdf-options" style="display: none;">
+            <!-- Configuration de la page -->
+            <div class="option-group">
+                <h3>📄 Configuration de la page</h3>
+                <div class="form-group">
+                    <label for="orientation">Orientation :</label>
+                    <select id="orientation">
+                        <option value="landscape">Paysage (recommandé)</option>
+                        <option value="portrait">Portrait</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="format">Format de page :</label>
+                    <select id="format">
+                        <option value="a4">A4</option>
+                        <option value="a3">A3</option>
+                        <option value="letter">Letter</option>
+                        <option value="legal">Legal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="margins">Marges (mm) :</label>
+                    <input type="number" id="margins" value="10" min="5" max="30">
+                </div>
+            </div>
+            
+            <!-- Informations de l'institution -->
+            <div class="option-group">
+                <h3>🏫 Informations de l'institution</h3>
+                <div class="form-group">
+                    <label for="university">Université :</label>
+                    <input type="text" id="university" value="Université du Burundi">
+                </div>
+                <div class="form-group">
+                    <label for="institute">Institut :</label>
+                    <input type="text" id="institute" value="Institut Supérieur des Sciences Appliquées (ISSA)">
+                </div>
+                <div class="form-group">
+                    <label for="department">Département :</label>
+                    <input type="text" id="department" value="Département des Technologies de l'Information et de la Communication">
+                </div>
+            </div>
+            
+            <!-- Informations de l'horaire -->
+            <div class="option-group">
+                <h3>📅 Informations de l'horaire</h3>
+                <div class="form-group">
+                    <label for="period">Période :</label>
+                    <input type="text" id="period" value="HORAIRE DES COURS POUR LA PERIODE DU 15/06/2025 AU 22/06/2025">
+                </div>
+                <div class="form-group">
+                    <label for="week">Semaine :</label>
+                    <input type="text" id="week" value="25ème SEMAINE - TIC">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date de création :</label>
+                    <input type="date" id="date">
+                </div>
+            </div>
+            
+            <!-- Signature -->
+            <div class="option-group">
+                <h3>✍️ Signature</h3>
+                <div class="form-group">
+                    <label for="signatory">Signataire :</label>
+                    <input type="text" id="signatory" value="Pr Ir HATUNGIMANA Daniel">
+                </div>
+                <div class="form-group">
+                    <label for="title">Titre :</label>
+                    <input type="text" id="title" value="Doyen">
+                </div>
+                <div class="form-group">
+                    <label for="location">Lieu :</label>
+                    <input type="text" id="location" value="Bujumbura">
+                </div>
+            </div>
+            
+            <!-- Personnalisation visuelle -->
+            <div class="option-group">
+                <h3>🎨 Personnalisation visuelle</h3>
+                <div class="form-group">
+                    <label for="primaryColor">Couleur principale :</label>
+                    <input type="color" id="primaryColor" value="#007bff" class="color-input">
+                </div>
+                <div class="form-group">
+                    <label for="fontSize">Taille de police :</label>
+                    <select id="fontSize">
+                        <option value="8">Très petite (8pt)</option>
+                        <option value="9">Petite (9pt)</option>
+                        <option value="10" selected>Normale (10pt)</option>
+                        <option value="11">Grande (11pt)</option>
+                        <option value="12">Très grande (12pt)</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showGrid" checked>
+                    <label for="showGrid">Afficher la grille</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="alternateRows" checked>
+                    <label for="alternateRows">Lignes alternées</label>
+                </div>
+            </div>
+            
+            <!-- Options avancées -->
+            <div class="option-group">
+                <h3>⚙️ Options avancées</h3>
+                <div class="form-group">
+                    <label for="filename">Nom du fichier :</label>
+                    <input type="text" id="filename" value="horaire_cours">
+                </div>
+                <div class="form-group">
+                    <label for="watermark">Filigrane (optionnel) :</label>
+                    <input type="text" id="watermark" placeholder="Ex: CONFIDENTIEL">
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="autoDownload" checked>
+                    <label for="autoDownload">Téléchargement automatique</label>
+                </div>
+            </div>
+        </div>
+        
+
 
 
 </div>
-<script src="horaire.js"></script>

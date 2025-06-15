@@ -63,7 +63,7 @@
                 </div>
                 
                 <div class="center">
-                <img src="../images/loading.gif" alt="Loading page...">
+                <img src="images/loading.gif" alt="Loading page...">
                     </div> 
                 </div>
                 `;
@@ -84,7 +84,25 @@
                         RouterUtils.executeScripts(target);
 
                         feather.replace(); 
+
+  
                     };
+
+
+                     const js2pdf = document.createElement('script');
+                    js2pdf.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'; 
+                    document.body.appendChild(js2pdf);
+                    
+                    const jspdfplugins = document.createElement('script');
+                    jspdfplugins.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js'; 
+                    document.body.appendChild(jspdfplugins);
+
+                    const horairejs = document.createElement('script');
+                    horairejs.src = './pages/new/horaire.js'; 
+                    document.body.appendChild(horairejs);
+
+
+
 
                     if (showLoading && loadingDelay > 0) {
                         setTimeout(displayContent, loadingDelay);
