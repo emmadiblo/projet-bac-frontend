@@ -1,0 +1,139 @@
+
+<div class="demo-window">
+    
+
+    <div class="window" id="Salle">
+        <p>Nouvel enregistrement</p>
+
+        <form action="" method="post">
+
+            <label for="nom">Nom de la salle(ex. Salle B)</label>
+         <input type="text" placeholder="Nom" name="nom">
+
+         <label for="type">Sélectionner le type</label>
+
+         <select name="type" id="">
+            <option value="etude">Salle des études</option>
+            <option value="informatique">Salle informatique</option>
+            <option value="laboratoire">Laboratoire</option>
+         </select>
+
+
+        
+        <button type="submit" name="save">Enregistrer</button>
+        </form>
+
+    </div>
+</div>
+
+<div class="contenu" id="wondow-tab">
+   
+         <div class="page-header">
+            <h1 class="page-title">Gestion des Salles</h1>
+            <button id="add-window">Ajouter une nouvelle salle</button>
+        </div>
+
+        <div class="table-controls">
+
+            <div class="search-group">
+                <input type="text" class="form-input" placeholder="Rechercher..." id="searchInput" style="min-width: 250px;">
+            </div>
+
+            <select class="form-select" id="filterStatus">
+                    <option value="">Tous les statuts</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="occupee">Occupée</option>
+              
+                </select>
+          
+        </div>
+
+        <div class="table-info">
+            <span>Affichage de <strong>1-10</strong> sur <strong>15</strong> Salles</span>
+            <span>Dernière mise à jour: 26/05/2025 14:30</span>
+        </div>
+
+        <!-- TABLE NORMALE -->
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>Nom Complet</th>
+
+                        <th>Type</th>
+                        <th>Statut</th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>Salle 6</td>
+
+                        <td>Salle informatique</td>
+                        <td><span class="badge badge-success">Disponible</span></td>
+                       <td>
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>Salle R04</td>
+
+                        <td>Salle des études</td>
+     
+                        <td><span class="badge badge-danger">Occupée</span></td>
+                        <td>
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                        </td>
+                    </tr>
+
+
+                                        <tr>
+
+                        <td>Salle R01</td>
+
+                        <td>Salle des études</td>
+                       
+                        <td><span class="badge badge-success">Disponible</span></td>
+                        <td>
+                               
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button disabled><i data-feather="chevrons-left"></i></button>
+            <button disabled><i data-feather="chevron-left"></i></button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button><i data-feather="chevron-right"></i></button>
+            <button><i data-feather="chevrons-right"></i></button>
+        </div>
+
+
+            
+
+
+</div>
+
+
+<div id="demo-tree"></div>
+<div class="add-value"></div>
+
+<div>
+    <p>This is a demo.</p>
+     <i data-feather="arrow-left"></i>
+</div>
+
+</div>

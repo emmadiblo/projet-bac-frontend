@@ -1,0 +1,129 @@
+
+<div class="demo-window">
+    
+
+    <div class="window" id="Options">
+        <p>Nouvel enregistrement du filière</p>
+        <form action="" method="post">
+
+            <label for="departement">Selectionner le département</label>
+            <select name="departement" id="">
+                <option value="tic">TIC</option>
+                <option value="construction">Construction</option>
+                <option value="electro">Electromécanique</option>
+            </select>
+           
+            <label for="nom">Entrez le nom de l'option</label>
+           <input type="text" placeholder="Nom" name="nom">
+
+          <label for="desc">
+            Description
+          </label>
+
+          <textarea name="desc" id="" ></textarea>
+        
+        <button type="submit" name="save">Enregistrer</button>
+        </form>
+
+    </div>
+</div>
+
+   
+<div class="contenu" id="wondow-tab">
+   
+         <div class="page-header">
+            <h1 class="page-title">Gestion des Options</h1>
+            <button id="add-window">Ajouter une nouvelle option</button>
+        </div>
+
+        <div class="table-controls">
+
+            <div class="search-group">
+                <input type="text" class="form-input" placeholder="Rechercher..." id="searchInput" style="min-width: 250px;">
+            </div>
+
+            <select class="form-select" id="filter">
+                    <option value="">Tous les départements</option>
+                    <option value="1">Dép 1</option>
+                    <option value="2">Dép 2</option>
+                    <option value="3">Dép 3</option>
+                </select>
+          
+        </div>
+
+        <div class="table-info">
+            <span>Affichage de <strong>1-10</strong> sur <strong>45</strong> Options</span>
+            <span>Dernière mise à jour: 26/05/2025 14:30</span>
+        </div>
+
+                <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Département</th>
+                        <th>Nom option</th>
+                        <th>Description</th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+        
+                        <td><strong>1</strong></td>
+                        <td>TIC</d>
+                        <td>Informatique</d>
+                        <td >description ici..</td>
+    
+                        <td>
+                       <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                        <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+        
+                        <td><strong>2</strong></td>
+                        <td>TIC</d>
+                        <td>Informatique</d>
+                        <td >description ici..</td>
+    
+                        <td>
+                       <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                        <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+        
+                        <td><strong>3</strong></td>
+                        <td>TIC</d>
+                        <td>Informatique</d>
+                        <td >description ici..</td>
+    
+                        <td>
+                       <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                        <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="pagination">
+            <button disabled><i data-feather="chevrons-left"></i></button>
+            <button disabled><i data-feather="chevron-left"></i></button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button><i data-feather="chevron-right"></i></button>
+            <button><i data-feather="chevrons-right"></i></button>
+        </div>
+
+
+            
+
+
+</div>
+

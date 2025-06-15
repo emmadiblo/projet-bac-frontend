@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion auto des emplois du temps et salles</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="css/notify.css">
+     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+     <script src="js/feather.js"></script>
+    <script src="js/notify.js"></script> 
+
+</head>
+<body>
+
+<div id="content">
+
+<div id="demo-menu">
+    <ul class="menu">
+
+ <ul style="display: flex;" class="buttons">
+    <li style="border-radius: 0%;"> <span class="clock" style=" font-size: 1.4em;" id="clock"></span></li>
+  <li id="backButton" onclick="goBack();"><i data-feather="arrow-left"></i></li>   
+  <li id="refresh" onclick="refresh();"><i data-feather="rotate-cw"></i></li>
+  <li id="prevButton" onclick="goPrev();"><i data-feather="arrow-right"></i></li>   
+ 
+ </ul>
+
+        <li>
+            <span>Explorer</span>
+            <ul>
+                <li><a href="./#/home">Dashboard</a></li>
+                <li>
+                   <span>Personnel</span>
+                   <ul>
+                      <li><a href="./#/enseignants">Enseignants</a></li>
+                   </ul>  
+
+                </li>
+                <li>
+                    <a href="./#/salles">
+                        Salles
+                    </a>
+                    </li>
+                <li>
+                    <a href="./#/departements">
+                    Départements
+                    </a>
+                    </li>
+                <li>
+                    <a href="./#/options">
+                     Options
+                    </a>
+                  </li>
+                <li>
+                   <a href="./#/cours">
+                      Cours
+                    </a>
+                  </li>
+                <li>
+                    <span>Horaires</span>
+
+                    <ul>
+                        <li>
+                            <span>  Générer</span>
+                            <ul>
+                                <li><a href="./#/horaire/new">Horaire des cours</a></li>
+                                 <li>Horaire des examens</li>
+                            </ul>
+
+                        </li>
+                        <li>Historique des horaires</li>
+                       
+                    </ul>
+                </li>
+                <li>
+                     <a href="./#/notifications">
+                    Notifications
+                    </a> 
+                  </li>
+            </ul>
+        </li>
+        <li>
+            <span>Paramètres</span>
+            <ul>
+                <li>
+                    <span>Thème</span>
+                    <ul>
+                        <li>Système</li>
+                        <li>Light</li>
+                        <li>Dark</li>
+                    </ul>
+                </li>
+
+                <li>
+                  <span>Police</span>
+                   <ul></ul>
+               </li>
+
+                <li>
+                    <span>Son</span>
+                    <ul></ul>
+                </li>
+                
+            <li>
+                <span>Langue</span>
+                <ul id="lang-menu">
+                    <li id="lang-fr">Français</li>
+                    <li id="lang-en">English</li>
+                </ul>
+            </li>
+
+             
+            </ul>
+        </li>
+        <li>
+            <span>Apropos</span>
+            <ul>
+                <li id="about">Université</li>
+                <li id="dev">Développeur</li>
+                <li id="aide">Application & aide</li>
+            </ul>
+        </li>
+
+        <li>
+            <span>Compte</span>
+            <ul>
+                <li>Se Connecter</li>
+                <hr>
+                <li class="disabled">Déconnexion</li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+<div class="demo-window">
+    <button onclick="notify()">Connexion</button>
+
+    <div class="window" id="Connexion">
+        <p>Connexion Administrateur</p>
+
+        <form action="" method="post">
+        <input type="text" placeholder="Votre Login">
+
+        <input type="password" id="password" placeholder="Mot de passe">
+
+        <label class="switch">
+      <input type="checkbox" id="showpass" >
+      <span class="slider"> Afficher le mot de passe</span>
+        </label>
+
+        
+
+        <script>
+            var password= document.getElementById('password');
+
+            var show= document.getElementById('showpass');
+
+            show.addEventListener('click',
+                ()=>{
+
+                    if (show.checked) {
+                         password.type='text'
+                    }else{
+                       password.type='password'  
+                    }
+                   
+                }
+            )
+            
+        </script>
+
+        <button type="submit" name="save">Se connecter</button>
+        </form>
+
+    </div>
+</div>
+
+   <div class="window" id="Apropos">
+
+    <h3>Université du Burundi</h3>
+     <p>Campus: Kiriri</p>
+    <p>Faculté: Institut Supérieur des Sciences Appliquées (ISSA)</p>
+    <p>Département des TIC</p>
+    <p>Adresse: Bujumbura</p>
+    <p>Doyen: Pr Ir HATUNGIMANA Daniel</p>
+
+   </div>
+
+
+
+      <div class="window" id="Développeur">
+            <h3>Contactez le développeur de l'application</h3>
+            <p>Pour toute question ou assistance, veuillez nous contacter :</p>
+             <hr>
+
+            <p><b>Email</b></p>
+            <p><em>emmadiblouwizeyimana@gmail.com</em></p>
+            <hr>
+            <p><b>Téléphone/Whatsapp</b></p>
+            <p><em>+25765517561</em></p>
+            <hr>
+            <p> <b>Github:</b></p>
+            <p><em>https://github.com/emmadiblo</em></p>
+  
+            <form id="contactForm">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea rows="4" placeholder="Votre message" required></textarea>
+                <button type="button">Envoyer</button>
+            </form>
+        </div>
+
+        <div class="window" id="Aide">
+
+            <h2>Aide et Documentation</h2>
+            
+         <p>Cette application permet de gérer automatiquement les emplois du temps et les salles de cours dans une faculté. Elle offre une interface intuitive pour planifier les cours, gérer les ressources et résoudre les conflits d'horaires.</p>
+      
+            <p>Comment utiliser cette application :</p>
+            <ul>
+                <li><strong>Tableau de bord</strong> : Vue d'ensemble des emplois du temps et des statistiques</li>
+                <li><strong>Gestion des salles</strong> : Ajouter, modifier ou supprimer des salles</li>
+                <li><strong>Gestion des enseignants</strong> : Gérer les informations des professeurs</li>
+                <li><strong>Gestion des cours</strong> : Configurer les cours et leurs attributs</li>
+                <li><strong>Génération des emplois du temps</strong> : Créer automatiquement des emplois du temps</li>
+               
+            </ul>
+            <p>Pour plus d'informations, consultez la <a href="#" onclick="showDocumentation()">documentation complète</a>.</p>
+           <p>© 2025 Tous droits réservés.</p>
+        </div>
+
+
+
+<div id="contentView">
+
+</div>
+
+
+<button class="loader__btn">
+  <div class="loader"></div>
+  Loading ...
+</button>
+
+
+ <button onclick="load(this)">Connexion</button>
+
+
+</div>
+   <script src="js/hashrouter.js"></script>
+    <script src="js/script.js"></script> 
+    <script src="js/raccourcis.js"></script>
+    <script>
+                function notify() {
+            // Exemple de notifications
+            notyf.open({
+                type: 'success',
+                message: `Opération réussie !`
+            });
+
+            notyf.open({
+                type: 'error',
+                message: `Une erreur est survenue.`
+            });
+
+            notyf.open({
+                type: 'warning',
+                message: `Attention requise.`
+            });
+
+            notyf.open({
+                type: 'info',
+                message: `Voici une information.`
+            });
+
+            // Remplacer les icônes Feather
+            setTimeout(() => feather.replace(), 10);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            router.init({
+                routes: [
+                    { name: "home", path: "pages/dashboard.html" },
+                    { name: "salles", path: "pages/salles.html" },
+                    { name: "enseignants", path: "pages/enseignants.html" },
+                    { name: "departements", path: "pages/departements.html" },
+                    { name: "options", path: "pages/options.html" },
+                    { name: "cours", path: "pages/cours.html" },
+                    { name: "notifications", path: "pages/notifications.html" },
+                    { name: "horaire/new", path: "pages/new/horaire.html" }
+                ],
+                routerViewId: "#contentView",
+                redirectRoute: "home",
+                notFoundPage: "pages/404.html"
+            });
+
+
+            // Remplacement des icônes Feather après le chargement du contenu
+            feather.replace();
+        });
+    </script>
+
+<script src="webdesktop/WebDesktop.js"></script>
+<script>
+
+
+	var windowUIList = getAllWindowUI();
+	
+    
+    var windowDemo = windowUIList['Connexion'];
+    var windo= document.querySelector(".window");
+	
+            var aideWindow = windowUIList['Aide'];
+    $('#aide')[0].onclick = function () {
+	    aideWindow.open();
+    };
+        var devWindow = windowUIList['Développeur'];
+    $('#dev')[0].onclick = function () {
+	   devWindow.open();
+    };
+
+            var aboutWindow = windowUIList['Apropos'];
+    $('#about')[0].onclick = function () {
+	   aboutWindow.open();
+    };
+
+
+
+
+     </script>
+</body>
+</html>

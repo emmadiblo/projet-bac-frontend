@@ -1,0 +1,185 @@
+
+          <div class="tab" id="wondow-tab">
+ 
+                <!-- Dashboard -->
+            <div id="dashboard" class="page">
+                <div class="page-header">
+                    <h1>Tableau de Bord</h1>
+                    <div>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Enseignants</h3>
+                            <div class="dashboard-card-icon">
+                                <i data-feather="users"></i>
+                            </div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div class="dashboard-card-value">87</div>
+                            <div class="dashboard-card-description">Enseignants actifs</div>
+                        </div>
+                        <div class="dashboard-card-footer">
+                            <span class="badge badge-danger">3 en congé</span>
+                            <a href="#/enseignants" class="view-all" onclick="showPage('professors')">Voir tout</a>
+                        </div>
+                    </div>
+
+
+                      
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Salles</h3>
+                            <div class="dashboard-card-icon">
+                                <i data-feather="home"></i>
+                            </div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div class="dashboard-card-value">32</div>
+                            <div class="dashboard-card-description">Salles disponibles</div>
+                        </div>
+                        <div class="dashboard-card-footer">
+                            <span class="badge badge-info">5 salles disponibles</span>
+                            <a href="#/salles" class="view-all">Voir tout</a>
+                        </div>
+                    </div>
+
+
+         
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Departements</h3>
+                            <div class="dashboard-card-icon">
+                                <i data-feather="book-open"></i>
+                            </div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div class="dashboard-card-value">4</div>
+                            <div class="dashboard-card-description">Départements disponibles</div>
+                        </div>
+                        <div class="dashboard-card-footer">
+                            <span class="badge badge-info">3 en congé</span>
+                            <a href="#/departements" class="view-all">Voir tout</a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Options </h3>
+                            <div class="dashboard-card-icon">
+                                <i data-feather="list"></i>
+                            </div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div class="dashboard-card-value">2</div>
+                            <div class="dashboard-card-description">Options dans 4 départements</div>
+                        </div>
+                        <div class="dashboard-card-footer">
+                            <span class="badge badge-info">Résolution requise</span>
+                            <a href="#/options" class="view-all" >Explorer</a>
+                        </div>
+                    </div>
+
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Cours</h3>
+                            <div class="dashboard-card-icon">
+                                <i data-feather="book"></i>
+                            </div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div class="dashboard-card-value">24</div>
+                            <div class="dashboard-card-description">Cours programmés cette semaine</div>
+                        </div>
+                        <div class="dashboard-card-footer">
+                            <span class="badge badge-info">12 non dispensées</span>
+                            <a href="#/cours" class="view-all" >Voir tout</a>
+                        </div>
+                    </div>
+
+
+                    
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Notifications</h3>
+                            <div class="dashboard-card-icon">
+                                <i data-feather="bell"></i>
+                            </div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div class="dashboard-card-value">12</div>
+                            <div class="dashboard-card-description">Notifications disponibles</div>
+                        </div>
+                        <div class="dashboard-card-footer">
+                            <span class="badge badge-info">8 non lus</span>
+                            <a href="#/notifications" class="view-all" >Voir tout</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+         </div>
+
+        <hr>
+        <div>
+                    <div class="main-content">
+                    <h2>Emploi du temps d'aujourd'hui</h2>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Heure</th>
+                                    <th>Salle A101</th>
+                                    <th>Salle B202</th>
+                                    <th>Salle C303</th>
+                                    <th>Salle D404</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td >08:00 - 13:00</td>
+                                    <td >
+                                        <div class="course-name">Mathématiques</div>
+                                        <div class="course-details">Prof. Dupont</div>
+                                    </td>
+                                    <td >
+                                        <div class="course-name">Physique</div>
+                                        <div class="course-details">Prof. Martin</div>
+                                    </td>
+                                    <td></td>
+                                    <td >
+                                        <div class="course-name">Informatique</div>
+                                        <div class="course-details">Prof. Bernard</div>
+                                    </td>
+                                </tr>
+
+                                                                <tr>
+                                    <td >13:30 - 18:00</td>
+                                    <td >
+                                        <div class="course-name">Mathématiques</div>
+                                        <div class="course-details">Prof. Dupont</div>
+                                    </td>
+                                    <td >
+                                        <div class="course-name">Physique</div>
+                                        <div class="course-details">Prof. Martin</div>
+                                    </td>
+                                    <td></td>
+                                    <td >
+                                        <div class="course-name">Informatique</div>
+                                        <div class="course-details">Prof. Bernard</div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+</div>

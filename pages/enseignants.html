@@ -1,0 +1,174 @@
+
+
+<div class="demo-window">
+    
+
+    <div class="window" id="Enseignant">
+        <p>Nouvel enregistrement</p>
+
+        <form action="" method="post">
+        <input type="text" placeholder="Nom" name="nom">
+
+        <input type="text" placeholder="Prenom" name="prenom">
+
+        <input type="tel" placeholder="Téléphone" name="tel">
+
+        <input type="email" placeholder="Email" name="email">
+
+        <input type="text" placeholder="Adresse" name="adresse">
+
+        <input type="text" placeholder="Matricule" name="matricule">
+        
+        <button type="submit" name="save">Ajouter</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+<div class="contenu" id="wondow-tab">
+   
+         <div class="page-header">
+            <h1 class="page-title">Gestion des Enseignants</h1>
+            <button id="add-window">Ajouter nouvel enseignant</button>
+        </div>
+
+        <div class="table-controls">
+
+            <div class="search-group">
+                <input type="text" class="form-input" placeholder="Rechercher..." id="searchInput" style="min-width: 250px;">
+            </div>
+
+            <select class="form-select" id="filterStatus">
+                    <option value="">Tous les statuts</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="indisponible">Indisponible</option>
+                    <option value="conge">En congé</option>
+                </select>
+          
+        </div>
+
+        <div class="table-info">
+            <span>Affichage de <strong>1-10</strong> sur <strong>45</strong> enseignants</span>
+            <span>Dernière mise à jour: 26/05/2025 14:30</span>
+        </div>
+
+        <!-- TABLE NORMALE -->
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>Matricule</th>
+                        <th>Nom Complet</th>
+                        <th class="hide-mobile">Email</th>
+                        <th class="hide-mobile">Téléphone</th>
+                        <th>Spécialité</th>
+                        <th>Disponibilité</th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="avatar">MD</div></td>
+                        <td><strong>ENS001</strong></td>
+                        <td>Marie Dupont</td>
+                        <td class="hide-mobile">marie.dupont@email.com</td>
+                        <td class="hide-mobile">+33 1 23 45 67 89</td>
+                        <td>Mathématiques</td>
+                        <td><span class="badge badge-success">Disponible</span></td>
+<td>
+                            <div class="actions">
+                               
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="avatar">JM</div></td>
+                        <td><strong>ENS002</strong></td>
+                        <td>Jean Martin</td>
+                        <td class="hide-mobile">jean.martin@email.com</td>
+                        <td class="hide-mobile">+33 1 98 76 54 32</td>
+                        <td>Informatique</td>
+                        <td><span class="badge badge-warning">En congé</span></td>
+                       <td>
+                            <div class="actions">
+                               
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="avatar">SL</div></td>
+                        <td><strong>ENS003</strong></td>
+                        <td>Sophie Laurent</td>
+                        <td class="hide-mobile">sophie.laurent@email.com</td>
+                        <td class="hide-mobile">+33 1 11 22 33 44</td>
+                        <td>Physique</td>
+                        <td><span class="badge badge-danger">Indisponible</span></td>
+                        <td>
+                            <div class="actions">
+                               
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="avatar">PR</div></td>
+                        <td><strong>ENS004</strong></td>
+                        <td>Pierre Rousseau</td>
+                        <td class="hide-mobile">pierre.rousseau@email.com</td>
+                        <td class="hide-mobile">+33 1 55 66 77 88</td>
+                        <td>Chimie</td>
+                        <td><span class="badge badge-success">Disponible</span></td>
+                        <td>
+                            <div class="actions">
+                               
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="avatar">AB</div></td>
+                        <td><strong>ENS005</strong></td>
+                        <td>Anne Bernard</td>
+                        <td class="hide-mobile">anne.bernard@email.com</td>
+                        <td class="hide-mobile">+33 1 99 88 77 66</td>
+                        <td>Anglais</td>
+                        <td><span class="badge badge-success">Disponible</span></td>
+                        <td>
+                            <div class="actions">
+                               
+                                <a href="" class="btn btn-sm btn-warning"><i data-feather="edit-3"></i></a>
+                                 <a href="" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button disabled><i data-feather="chevrons-left"></i></button>
+            <button disabled><i data-feather="chevron-left"></i></button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button><i data-feather="chevron-right"></i></button>
+            <button><i data-feather="chevrons-right"></i></button>
+        </div>
+
+</div>
+
+</div>
+

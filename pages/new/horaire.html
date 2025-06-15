@@ -1,0 +1,312 @@
+
+
+
+    <style>
+
+         .input-group {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group label {
+            margin-right: 10px;
+            min-width: 120px;
+        }
+
+        .day-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--background-secondary);
+        }
+
+        .day-periods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .period {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--background-primary);
+        }
+
+        .period h4 {
+            margin-top: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .period-option {
+            margin-bottom: 15px;
+        }
+
+        .period-content {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: var(--background-secondary);
+            border-radius: 5px;
+        }
+
+        .preview-section {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .badge-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .badge-warning {
+            background-color: var(--warning-color);
+            color: var(--text-primary);
+        }
+
+        .badge-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .badge-info {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Timetable styles */
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .timetable th, .timetable td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .timetable th {
+            background-color: var(--background-secondary);
+            font-weight: bold;
+        }
+
+        .timetable .time-slot {
+            background-color: var(--background-secondary);
+            font-weight: bold;
+        }
+
+        .timetable .course-cell {
+            background-color: var(--background-primary);
+            border-radius: 4px;
+            padding: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .timetable .course-cell:hover {
+            background-color: var(--background-hover);
+        }
+
+        .course-cell .course-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .course-cell .course-details {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+        }
+
+        .course-cell .course-status {
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        .add-option-btn {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: var(--text-active);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .options-container {
+            margin-top: 10px;
+        }
+
+        .option-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--background-secondary);
+            position: relative;
+        }
+
+        .remove-option {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .day-periods {
+                flex-direction: column;
+            }
+            .period {
+                width: 100%;
+            }
+        }
+        
+    </style>
+
+</head>
+<body>
+<div id="content">
+
+
+<div class="contenu" id="wondow-tab">
+
+    <div class="horaire">
+
+         <div class="page-header">
+            <h1 class="page-title">
+                Générer un nouveau horaire
+            </h1>
+      
+        </div>
+        <form id="horaireForm">
+            <fieldset>
+                <legend>Informations générales</legend>
+                <div class="input-group">
+                    <label for="semaine">Semaine</label>
+                    <input type="number" name="semaine" id="semaine" value="18" min="1" max="52">
+                </div>
+                <div class="input-group">
+                    <label for="department">Département</label>
+                    <select name="department" id="department">
+                        <!-- Les départements seront chargés dynamiquement ici -->
+                        <option value="">Chargement...</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="periode_debut">Période du</label>
+                    <input type="date" name="periode_debut" id="periode_debut">
+                </div>
+                <div class="input-group">
+                    <label for="periode_fin">au</label>
+                    <input type="date" name="periode_fin" id="periode_fin">
+                </div>
+            </fieldset>
+
+            <div id="optionsContainer" class="options-container">
+                <!-- Les options seront ajoutées ici -->
+            </div>
+
+            <button type="button" class="add-option-btn" onclick="addOption()">+ Ajouter une option</button>
+
+            <div class="action-buttons">
+                <button type="button" onclick="previewTimetable()">Prévisualiser l'horaire</button>
+                <button type="reset">Réinitialiser</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="previewSection" class="preview-section">
+        <div class="preview-header">
+            <h2>Université du Burundi</h2>
+            <h3>Institut Supérieur des Sciences Appliquées (ISSA)</h3>
+            <h4 id="previewDepartment">Département des Technologies de l'Information et de la Communication</h4>
+            <p id="previewPeriod">HORAIRE DES COURS POUR LA PERIODE DU...</p>
+            <p id="previewWeek">...ème SEMAINE - TIC</p>
+        </div>
+
+        <table class="timetable" id="previewTable">
+            <thead>
+                <tr>
+                    <th rowspan="2">CLASSES</th>
+                    <th colspan="2">LUNDI</th>
+                    <th colspan="2">MARDI</th>
+                    <th colspan="2">MERCREDI</th>
+                    <th colspan="2">JEUDI</th>
+                    <th colspan="2">VENDREDI</th>
+                </tr>
+                <tr>
+                    <th>MATIN</th>
+                    <th>APRÈS-MIDI</th>
+                    <th>MATIN</th>
+                    <th>APRÈS-MIDI</th>
+                    <th>MATIN</th>
+                    <th>APRÈS-MIDI</th>
+                    <th>MATIN</th>
+                    <th>APRÈS-MIDI</th>
+                    <th>MATIN</th>
+                    <th>APRÈS-MIDI</th>
+                </tr>
+            </thead>
+            <tbody id="previewTableBody">
+                <!-- Preview content will be generated here -->
+            </tbody>
+        </table>
+
+        <div class="preview-footer">
+            <p>TPE : Travail Personnel de l'étudiant</p>
+            <p>Fait à Bujumbura, le <span id="previewDate"></span></p>
+            <p>Pr Ir HATUNGIMANA Daniel</p>
+            <p>Doyen</p>
+        </div>
+
+        <div class="action-buttons">
+            <button type="button" onclick="window.print()">Imprimer l'horaire</button>
+            <button type="button" onclick="hidePreview()">Retour au formulaire</button>
+        </div>
+    </div>
+
+
+
+</div>
+<script src="horaire.js"></script>
